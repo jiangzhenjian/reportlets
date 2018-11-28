@@ -84,14 +84,20 @@ where substr(t.cost_month, 0, 4) > to_char(ADD_MONTHS(sysdate, -12 * 5), 'yyyy')
 <![CDATA[]]></PageQuery>
 </TableData>
 <TableData name="sel_series" class="com.fr.data.impl.DBTableData">
-<Parameters/>
+<Parameters>
+<Parameter>
+<Attributes name="workshop"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
 <Attributes maxMemRowCount="-1"/>
 <Connection class="com.fr.data.impl.NameDatabaseConnection">
 <DatabaseName>
 <![CDATA[imc]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select t.series,t.idx from cf_dim_series t order by idx]]></Query>
+<![CDATA[select t.series,t.idx from cf_dim_series t where t.workshop like '%${workshop}%' order by idx ]]></Query>
 <PageQuery>
 <![CDATA[]]></PageQuery>
 </TableData>
@@ -108,14 +114,20 @@ where substr(t.cost_month, 0, 4) > to_char(ADD_MONTHS(sysdate, -12 * 5), 'yyyy')
 <![CDATA[]]></PageQuery>
 </TableData>
 <TableData name="sel_name" class="com.fr.data.impl.DBTableData">
-<Parameters/>
+<Parameters>
+<Parameter>
+<Attributes name="workshop"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
 <Attributes maxMemRowCount="-1"/>
 <Connection class="com.fr.data.impl.NameDatabaseConnection">
 <DatabaseName>
 <![CDATA[imc]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select t.name,t.idx from cf_dim_name t order by idx]]></Query>
+<![CDATA[select t.name,t.idx from cf_dim_name t where t.workshop like '%${workshop}%' order by idx ]]></Query>
 <PageQuery>
 <![CDATA[]]></PageQuery>
 </TableData>
@@ -446,7 +458,7 @@ where substr(t.cost_month, 0, 4) = '${year}'
 <![CDATA[_dialog]]></TargetFrame>
 <Features width="1250" height="700"/>
 <ReportletName showPI="true">
-<![CDATA[/cf_dashbord2.cpt]]></ReportletName>
+<![CDATA[/cf/cf_dashbord2.cpt]]></ReportletName>
 </JavaScript>
 </JavaScript>
 </NameJavaScript>
@@ -2696,18 +2708,18 @@ where substr(t.cost_month, 0, 4) = '${year}'
 <ChartDefinition>
 <CustomDefinition>
 <DefinitionMapList>
-<DefinitionMap key="column">
+<DefinitionMap key="line">
 <NormalReportDataDefinition>
 <Series>
 <SeriesDefinition>
 <SeriesName>
 <O>
-<![CDATA[成本]]></O>
+<![CDATA[总吨位]]></O>
 </SeriesName>
 <SeriesValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=[H4,H5]A]]></Attributes>
+<![CDATA[=[I4,I5]A]]></Attributes>
 </O>
 </SeriesValue>
 </SeriesDefinition>
@@ -2733,18 +2745,18 @@ where substr(t.cost_month, 0, 4) = '${year}'
 </Top>
 </NormalReportDataDefinition>
 </DefinitionMap>
-<DefinitionMap key="line">
+<DefinitionMap key="column">
 <NormalReportDataDefinition>
 <Series>
 <SeriesDefinition>
 <SeriesName>
 <O>
-<![CDATA[总吨位]]></O>
+<![CDATA[成本]]></O>
 </SeriesName>
 <SeriesValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=[I4,I5]A]]></Attributes>
+<![CDATA[=[H4,H5]A]]></Attributes>
 </O>
 </SeriesValue>
 </SeriesDefinition>
@@ -3998,33 +4010,6 @@ where substr(t.cost_month, 0, 4) = '${year}'
 <ChartDefinition>
 <CustomDefinition>
 <DefinitionMapList>
-<DefinitionMap key="column">
-<NormalReportDataDefinition>
-<Series>
-<SeriesDefinition>
-<SeriesName>
-<O t="XMLable" class="com.fr.base.Formula">
-<Attributes>
-<![CDATA[=D14]]></Attributes>
-</O>
-</SeriesName>
-<SeriesValue>
-<O t="XMLable" class="com.fr.base.Formula">
-<Attributes>
-<![CDATA[=B15]]></Attributes>
-</O>
-</SeriesValue>
-</SeriesDefinition>
-</Series>
-<Category>
-<O t="XMLable" class="com.fr.base.Formula">
-<Attributes>
-<![CDATA[=A15]]></Attributes>
-</O>
-</Category>
-<Top topCate="-1" topValue="-1" isDiscardOtherCate="false" isDiscardOtherSeries="false" isDiscardNullCate="false" isDiscardNullSeries="false"/>
-</NormalReportDataDefinition>
-</DefinitionMap>
 <DefinitionMap key="line">
 <NormalReportDataDefinition>
 <Series>
@@ -4039,6 +4024,33 @@ where substr(t.cost_month, 0, 4) = '${year}'
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
 <![CDATA[=C15]]></Attributes>
+</O>
+</SeriesValue>
+</SeriesDefinition>
+</Series>
+<Category>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=A15]]></Attributes>
+</O>
+</Category>
+<Top topCate="-1" topValue="-1" isDiscardOtherCate="false" isDiscardOtherSeries="false" isDiscardNullCate="false" isDiscardNullSeries="false"/>
+</NormalReportDataDefinition>
+</DefinitionMap>
+<DefinitionMap key="column">
+<NormalReportDataDefinition>
+<Series>
+<SeriesDefinition>
+<SeriesName>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=D14]]></Attributes>
+</O>
+</SeriesName>
+<SeriesValue>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=B15]]></Attributes>
 </O>
 </SeriesValue>
 </SeriesDefinition>
@@ -4253,7 +4265,7 @@ where substr(t.cost_month, 0, 4) = '${year}'
 <PrivilegeControl/>
 </Report>
 <ReportParameterAttr>
-<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0" useParamsTemplate="true"/>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0" useParamsTemplate="false"/>
 <PWTitle>
 <![CDATA[参数]]></PWTitle>
 <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
@@ -4542,7 +4554,7 @@ where substr(t.cost_month, 0, 4) = '${year}'
 </MobileWidgetList>
 <Display display="true"/>
 <DelayDisplayContent delay="false"/>
-<UseParamsTemplate use="true"/>
+<UseParamsTemplate use="false"/>
 <Position position="0"/>
 <Design_Width design_width="1028"/>
 <NameTagModified>

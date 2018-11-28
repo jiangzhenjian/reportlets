@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
 <ReportWebAttr>
+<Title>
+<![CDATA[预计产量导入 ]]></Title>
 <ServerPrinter/>
 <WebWriteContent>
-<Listener event="writesuccess">
-<JavaScript class="com.fr.js.JavaScriptImpl">
-<Parameters>
-<Parameter>
-<Attributes name="msg"/>
-<O t="XMLable" class="com.fr.base.Formula">
-<Attributes>
-<![CDATA[=SQL('imc','{call PCF_COST_INFO_IMPORT(?)}',1,1)]]></Attributes>
-</O>
-</Parameter>
-</Parameters>
-<Content>
-<![CDATA[if (msg != '执行成功') {
-	alert(msg);
-	return false;
-}
-//afterwrite
-//writesuccess]]></Content>
-</JavaScript>
-</Listener>
 <ToolBars>
 <ToolBarManager>
 <Location>
@@ -39,6 +21,15 @@
 <![CDATA[submit]]></IconName>
 <Verify failVerifySubmit="false" value="true"/>
 <Sheet onlySubmitSelect="false"/>
+</Widget>
+<Widget class="com.fr.report.web.button.write.Verify">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Report_Verify_Data')}]]></Text>
+<IconName>
+<![CDATA[verify]]></IconName>
 </Widget>
 <Widget class="com.fr.report.web.button.write.ImportExcelData">
 <WidgetAttr description="">
@@ -60,9 +51,6 @@
 <OtherAttr autoStash="false"/>
 </WebWriteContent>
 </ReportWebAttr>
-<ElementCaseMobileAttr>
-<ElementCaseMobileAttrProvider horizontal="1" vertical="1" zoom="true" refresh="false" isUseHTML="false" isMobileCanvasSize="false" appearRefresh="false" allowFullScreen="false"/>
-</ElementCaseMobileAttr>
 <Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
 <ReportPageAttr>
 <HR/>
@@ -73,13 +61,13 @@
 <ColumnPrivilegeControl/>
 <RowPrivilegeControl/>
 <RowHeight defaultValue="723900">
-<![CDATA[1333500,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<![CDATA[1295400,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
 <ColumnWidth defaultValue="2743200">
-<![CDATA[2743200,2743200,2743200,2743200,2743200,2743200,6896100,2743200,2743200,2743200,2743200,2743200,3771900,2743200]]></ColumnWidth>
+<![CDATA[2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
 <CellElementList>
-<C c="0" r="0" cs="26" s="0">
+<C c="0" r="0" cs="35" s="0">
 <O>
-<![CDATA[历史成本数据导入]]></O>
+<![CDATA[预计产量导入]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -91,151 +79,205 @@
 </C>
 <C c="1" r="1" s="1">
 <O>
-<![CDATA[公司]]></O>
+<![CDATA[车间]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="2" r="1" s="1">
 <O>
-<![CDATA[车间]]></O>
+<![CDATA[生产线编号]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="3" r="1" s="1">
 <O>
-<![CDATA[系列]]></O>
+<![CDATA[工序号]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="4" r="1" s="1">
 <O>
-<![CDATA[牌号]]></O>
+<![CDATA[1日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="5" r="1" s="1">
 <O>
-<![CDATA[名称]]></O>
+<![CDATA[2日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="6" r="1" s="1">
 <O>
-<![CDATA[分类]]></O>
+<![CDATA[3日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="7" r="1" s="1">
 <O>
-<![CDATA[总成本]]></O>
+<![CDATA[4日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="8" r="1" s="1">
 <O>
-<![CDATA[吨重]]></O>
+<![CDATA[5日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="9" r="1" s="1">
 <O>
-<![CDATA[原材料]]></O>
+<![CDATA[6日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="10" r="1" s="1">
 <O>
-<![CDATA[辅助材料]]></O>
+<![CDATA[7日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="11" r="1" s="1">
 <O>
-<![CDATA[动能费]]></O>
+<![CDATA[8日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="12" r="1" s="1">
 <O>
-<![CDATA[可控制造费用]]></O>
+<![CDATA[9日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="13" r="1" s="1">
 <O>
-<![CDATA[设备维修费]]></O>
+<![CDATA[10日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="14" r="1" s="1">
 <O>
-<![CDATA[大修费]]></O>
+<![CDATA[11日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="15" r="1" s="1">
 <O>
-<![CDATA[建修费]]></O>
+<![CDATA[12日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="16" r="1" s="1">
 <O>
-<![CDATA[工具工装]]></O>
+<![CDATA[13日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="17" r="1" s="1">
 <O>
-<![CDATA[机物料消耗]]></O>
+<![CDATA[14日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="18" r="1" s="1">
 <O>
-<![CDATA[低值易耗品]]></O>
+<![CDATA[15日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="19" r="1" s="1">
 <O>
-<![CDATA[运输费]]></O>
+<![CDATA[16日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="20" r="1" s="1">
 <O>
-<![CDATA[其他合计]]></O>
+<![CDATA[17日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="21" r="1" s="1">
 <O>
-<![CDATA[废品损失]]></O>
+<![CDATA[18日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="22" r="1" s="1">
 <O>
-<![CDATA[固定成本]]></O>
+<![CDATA[19日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="23" r="1" s="1">
 <O>
-<![CDATA[职工工资]]></O>
+<![CDATA[20日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="24" r="1" s="1">
 <O>
-<![CDATA[折旧费]]></O>
+<![CDATA[21日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
 <C c="25" r="1" s="1">
 <O>
-<![CDATA[租赁费]]></O>
+<![CDATA[22日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="26" r="1" s="1">
+<O>
+<![CDATA[23日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="27" r="1" s="1">
+<O>
+<![CDATA[24日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="28" r="1" s="1">
+<O>
+<![CDATA[25日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="29" r="1" s="1">
+<O>
+<![CDATA[26日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="30" r="1" s="1">
+<O>
+<![CDATA[27日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="31" r="1" s="1">
+<O>
+<![CDATA[28日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="32" r="1" s="1">
+<O>
+<![CDATA[29日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="33" r="1" s="1">
+<O>
+<![CDATA[30日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="34" r="1" s="1">
+<O>
+<![CDATA[31日]]></O>
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -289,43 +331,39 @@
 </C>
 <C c="4" r="2" s="2">
 <PrivilegeControl/>
-<Widget class="com.fr.form.ui.TextEditor">
+<Widget class="com.fr.form.ui.NumberEditor">
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<TextAttr/>
-<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<NumberAttr>
 <widgetValue/>
+</NumberAttr>
 </Widget>
 <Expand dir="0"/>
 </C>
 <C c="5" r="2" s="2">
 <PrivilegeControl/>
-<Widget class="com.fr.form.ui.TextEditor">
+<Widget class="com.fr.form.ui.NumberEditor">
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<TextAttr/>
-<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<NumberAttr>
 <widgetValue/>
+</NumberAttr>
 </Widget>
 <Expand dir="0"/>
 </C>
 <C c="6" r="2" s="2">
 <PrivilegeControl/>
-<Widget class="com.fr.form.ui.TextEditor">
+<Widget class="com.fr.form.ui.NumberEditor">
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<EMSG>
-<![CDATA[分类不能为空]]></EMSG>
-<allowBlank>
-<![CDATA[false]]></allowBlank>
-<TextAttr allowBlank="false"/>
-<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<NumberAttr>
 <widgetValue/>
+</NumberAttr>
 </Widget>
-<Expand/>
+<Expand dir="0"/>
 </C>
 <C c="7" r="2" s="2">
 <PrivilegeControl/>
@@ -333,7 +371,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -345,11 +383,11 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
-<Expand/>
+<Expand dir="0"/>
 </C>
 <C c="9" r="2" s="2">
 <PrivilegeControl/>
@@ -357,7 +395,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -369,7 +407,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -381,7 +419,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -393,7 +431,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -405,7 +443,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -417,7 +455,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -429,7 +467,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -441,7 +479,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -453,7 +491,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -465,7 +503,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -477,7 +515,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -489,7 +527,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -501,7 +539,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -513,7 +551,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -525,7 +563,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -537,7 +575,7 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -549,7 +587,115 @@
 <WidgetAttr description="">
 <PrivilegeControl/>
 </WidgetAttr>
-<NumberAttr maxDecimalLength="160">
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="26" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="27" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="28" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="29" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="30" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="31" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="32" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="33" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
+<widgetValue/>
+</NumberAttr>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="34" r="2" s="2">
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.NumberEditor">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<NumberAttr>
 <widgetValue/>
 </NumberAttr>
 </Widget>
@@ -558,6 +704,7 @@
 </CellElementList>
 <ReportAttrSet>
 <ReportSettings headerHeight="0" footerHeight="0">
+<FrozenColumnRow columnrow="F3"/>
 <PaperSetting/>
 </ReportSettings>
 <Header reportPageType="0">
@@ -579,88 +726,123 @@
 <![CDATA[内置SQL1]]></Name>
 <Attributes dsName="imc"/>
 <DMLConfig class="com.fr.write.config.IntelliDMLConfig">
-<Table schema="IMC" name="CF_COST_INFO_IMPORT"/>
-<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
-<ColumnRow column="6" row="2"/>
+<Table schema="IMC" name="F1_PRODUCTION"/>
+<ColumnConfig name="ID" isKey="false" skipUnmodified="false">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=UUID()]]></Attributes>
+</O>
 </ColumnConfig>
-<ColumnConfig name="COST_MONTH" isKey="false" skipUnmodified="false">
+<ColumnConfig name="MONTH" isKey="true" skipUnmodified="false">
 <ColumnRow column="0" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COMPANY" isKey="false" skipUnmodified="false">
+<ColumnConfig name="WORKSHOP_NAME" isKey="true" skipUnmodified="false">
 <ColumnRow column="1" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="WORKSHOP" isKey="false" skipUnmodified="false">
+<ColumnConfig name="LINE_CODE" isKey="true" skipUnmodified="false">
 <ColumnRow column="2" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="SERIES" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROCESS_CODE" isKey="true" skipUnmodified="false">
 <ColumnRow column="3" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="GRADE" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM01" isKey="false" skipUnmodified="false">
 <ColumnRow column="4" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="NAME" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM02" isKey="false" skipUnmodified="false">
 <ColumnRow column="5" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_ALL" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM03" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM04" isKey="false" skipUnmodified="false">
 <ColumnRow column="7" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="TON_WEIGHT" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM05" isKey="false" skipUnmodified="false">
 <ColumnRow column="8" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_RAW_MAT" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM06" isKey="false" skipUnmodified="false">
 <ColumnRow column="9" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_AUX_MAT" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM07" isKey="false" skipUnmodified="false">
 <ColumnRow column="10" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_ENERGY" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM08" isKey="false" skipUnmodified="false">
 <ColumnRow column="11" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM09" isKey="false" skipUnmodified="false">
 <ColumnRow column="12" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_EM" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM10" isKey="false" skipUnmodified="false">
 <ColumnRow column="13" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_OE" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM11" isKey="false" skipUnmodified="false">
 <ColumnRow column="14" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_BR" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM12" isKey="false" skipUnmodified="false">
 <ColumnRow column="15" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_TOOLS" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM13" isKey="false" skipUnmodified="false">
 <ColumnRow column="16" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_AC" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM14" isKey="false" skipUnmodified="false">
 <ColumnRow column="17" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_LVA" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM15" isKey="false" skipUnmodified="false">
 <ColumnRow column="18" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_TE" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM16" isKey="false" skipUnmodified="false">
 <ColumnRow column="19" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_CTLM_OTHER" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM17" isKey="false" skipUnmodified="false">
 <ColumnRow column="20" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_DEF_PROD" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM18" isKey="false" skipUnmodified="false">
 <ColumnRow column="21" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_FIXED" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM19" isKey="false" skipUnmodified="false">
 <ColumnRow column="22" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_FIXED_SA" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM20" isKey="false" skipUnmodified="false">
 <ColumnRow column="23" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_FIXED_DP" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM21" isKey="false" skipUnmodified="false">
 <ColumnRow column="24" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="COST_FIXED_RE" isKey="false" skipUnmodified="false">
+<ColumnConfig name="PROD_NUM22" isKey="false" skipUnmodified="false">
 <ColumnRow column="25" row="2"/>
 </ColumnConfig>
-<ColumnConfig name="PROCESS_FLAG" isKey="false" skipUnmodified="false">
-<O>
-<![CDATA[N]]></O>
+<ColumnConfig name="PROD_NUM23" isKey="false" skipUnmodified="false">
+<ColumnRow column="26" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM24" isKey="false" skipUnmodified="false">
+<ColumnRow column="27" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM25" isKey="false" skipUnmodified="false">
+<ColumnRow column="28" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM26" isKey="false" skipUnmodified="false">
+<ColumnRow column="29" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM27" isKey="false" skipUnmodified="false">
+<ColumnRow column="30" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM28" isKey="false" skipUnmodified="false">
+<ColumnRow column="31" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM29" isKey="false" skipUnmodified="false">
+<ColumnRow column="32" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM30" isKey="false" skipUnmodified="false">
+<ColumnRow column="33" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="PROD_NUM31" isKey="false" skipUnmodified="false">
+<ColumnRow column="34" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="MODIFY_TIME" isKey="false" skipUnmodified="false">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=NOW()]]></Attributes>
+</O>
 </ColumnConfig>
 <Condition class="com.fr.data.condition.ListCondition"/>
 </DMLConfig>
@@ -685,7 +867,7 @@
 </Border>
 </Style>
 <Style horizontal_alignment="0" imageLayout="1">
-<FRFont name="SimSun" style="0" size="72"/>
+<FRFont name="SimSun" style="1" size="72"/>
 <Background name="NullBackground"/>
 <Border>
 <Top style="1" color="-16777216"/>
@@ -708,6 +890,6 @@
 <DesignerVersion DesignerVersion="KAA"/>
 <PreviewType PreviewType="1"/>
 <TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
-<TemplateIdAttMark TemplateId="c982c0af-3195-4289-963e-359b4cb69f0b"/>
+<TemplateIdAttMark TemplateId="1f8d8300-4e9e-4c1a-b5f1-2e8d0baa63a3"/>
 </TemplateIdAttMark>
 </WorkBook>
